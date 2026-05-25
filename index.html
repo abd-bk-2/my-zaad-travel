@@ -5,34 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Zaad Travel - وكالة سياحية</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --vc-ivory: #f6f4e8;
+            --vc-beige: #dfddcb;
+            --vc-sand: #cfccb8;
+            --vc-navy: #1f2b63;
+        }
         * {
             font-family: 'Cairo', 'Poppins', sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            background: linear-gradient(135deg, var(--vc-ivory) 0%, #ece9d8 100%);
             min-height: 100vh;
         }
         .hero-section {
-            background: linear-gradient(135deg, #1a3a52 0%, #2d5f7f 100%);
-            box-shadow: 0 10px 40px rgba(26, 58, 82, 0.3);
+            background: linear-gradient(135deg, var(--vc-beige) 0%, var(--vc-sand) 100%);
+            box-shadow: 0 20px 60px rgba(67, 66, 56, 0.16);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
         }
         .logo-container {
             filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
         }
         .contact-btn {
             transition: all 0.3s ease;
-            border: 2px solid #1a3a52;
-            color: #1a3a52;
+            border: 2px solid var(--vc-navy);
+            color: var(--vc-navy);
             background: white;
         }
         .contact-btn:hover {
-            background: #1a3a52;
+            background: var(--vc-navy);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(26, 58, 82, 0.3);
+            box-shadow: 0 8px 20px rgba(31, 43, 99, 0.3);
         }
         .icon-circle {
             width: 40px;
@@ -41,13 +68,14 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #1a3a52;
+            background: var(--vc-navy);
             color: white;
         }
         .description-card {
-            background: white;
-            border-right: 4px solid #1a3a52;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            background: #fffef9;
+            border-right: 3px solid var(--vc-navy);
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
         }
         .social-icon {
             width: 45px;
@@ -56,19 +84,19 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #f0f0f0;
-            color: #1a3a52;
+            background: #edead9;
+            color: var(--vc-navy);
             transition: all 0.3s ease;
             font-size: 18px;
         }
         .social-icon:hover {
-            background: #1a3a52;
+            background: var(--vc-navy);
             color: white;
             transform: scale(1.1);
         }
         .footer-divider {
             height: 1px;
-            background: linear-gradient(to right, transparent, #1a3a52, transparent);
+            background: linear-gradient(to right, transparent, var(--vc-navy), transparent);
         }
     </style>
 </head>
@@ -76,24 +104,17 @@
     <div class="min-h-screen flex items-center justify-center p-4">
         <div class="w-full max-w-md">
             <!-- Hero Section -->
-            <div class="hero-section rounded-t-3xl pt-8 pb-6">
-                <!-- Logos -->
-                <div class="flex flex-col items-center gap-4 mb-6">
+            <div class="hero-section rounded-t-3xl pt-14 pb-10 relative overflow-hidden">
+                <div class="relative z-10 flex flex-col items-center space-y-6">
+                    <!-- Main Logo -->
                     <div class="logo-container">
-                        <img src="https://i.postimg.cc/JzP3p6YW/logo.png" alt="My Zaad Travel Logo" class="h-20 w-auto">
+                        <img src="./logo.png" alt="My Zaad Travel" class="h-28 w-auto filter drop-shadow-lg">
                     </div>
-                    <h1 class="text-3xl font-bold text-white text-center">MY ZAAD TRAVEL</h1>
-                    <div class="flex items-center gap-2 justify-center">
-                        <i class="fas fa-plane text-white text-xl"></i>
-                        <span class="text-white/80 text-sm">وكالة سياحية متخصصة</span>
-                    </div>
-                </div>
 
-                <!-- Tagline -->
-                <div class="text-center px-6">
-                    <p class="text-white/90 text-sm leading-relaxed">
-                        رحلاتك التالية تبدأ من هنا
-                    </p>
+                    <!-- Slogan/Secondary Logo -->
+                    <div class="logo-container">
+                        <img src="./slogo.png" alt="Your Next Unforgettable Journey" class="h-16 w-auto filter drop-shadow-md">
+                    </div>
                 </div>
             </div>
 
